@@ -59,7 +59,7 @@ jobs:
 
       - name: Test
         run: |
-          npm test -- --no-watch --no-progress
+          npm run test -- --prod
 
       - name: Deploy
         run: |
