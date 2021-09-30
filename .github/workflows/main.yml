@@ -32,6 +32,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          ls,
           echo Add other actions to build,
+          ng deploy --repo=https://github.com/uj00007/angular-essentials-project.git --name="uj00007" --email=uj00007@gmail.com
           echo test, and deploy your project.
