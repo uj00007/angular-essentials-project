@@ -58,7 +58,8 @@ jobs:
           npm run build -- --prod
 
       - name: Test
-        run: npm run test -- --prod
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
       - name: Deploy
         run: |
