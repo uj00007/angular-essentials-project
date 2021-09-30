@@ -33,15 +33,40 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Install dependencies & Setup
-        run: npm ci
+
+      - name: Cache node modules
+        id: cache-nodemodules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          # caching node_modules
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+
+      - name: Build
+        run: |
+          npm run build -- --prod
+
       - name: Test
         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - name: Deploy
+        run: |
+          npm run deploy
 
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
-          ng deploy --repo=https://github.com/uj00007/angular-essentials-project.git --name="uj00007" --email=uj00007@gmail.com
           echo test, and deploy your project.
