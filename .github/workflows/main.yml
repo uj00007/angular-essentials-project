@@ -33,12 +33,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Install dependencies
+      - name: Install dependencies & Setup
         run: npm ci
       - name: Build
-        run: npm run build:ci
+        run: ng build
       - name: Test
-        run: npm run test:ci
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
 
       # Runs a set of commands using the runners shell
