@@ -57,15 +57,15 @@ jobs:
         run: |
           npm run build -- --prod
 
-      - name: Test
-        run: |
-          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      # - name: Test
+      #   run: |
+      #     npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
       - name: Deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          sudo npm run deploy --no-silent
+          sudo npm run deploy
 
 
       # Runs a set of commands using the runners shell
