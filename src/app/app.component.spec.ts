@@ -1,15 +1,18 @@
 import { TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { CharacterComponent } from './character/character.component';
+import { CreateCharacterComponent } from './create-character/create-character.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
+      imports: [RouterTestingModule, FormsModule],
       declarations: [
-        AppComponent
+        AppComponent,
+        CharacterComponent,
+        CreateCharacterComponent,
       ],
     }).compileComponents();
   });
@@ -30,6 +33,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content h1')?.textContent).toContain('Essentials project Upcoming!!');
+    expect(compiled.querySelector('.content h1')?.textContent).toContain(
+      'Essentials project Upcoming!!'
+    );
   });
 });

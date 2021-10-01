@@ -8,18 +8,18 @@ describe('CharacterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharacterComponent ]
-    })
-    .compileComponents();
+      declarations: [CharacterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CharacterComponent);
     component = fixture.componentInstance;
+    component.props = { name: 'Asd' };
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create character component card', () => {
     expect(component).toBeTruthy();
   });
 });

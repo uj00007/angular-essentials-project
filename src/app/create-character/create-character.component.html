@@ -1,0 +1,19 @@
+<div>
+  <input type="text" [(ngModel)]="name" />
+  <p>Choose side</p>
+  <input
+    type="radio"
+    [value]="'Light'"
+    [name]="'isL'"
+    [(ngModel)]="radioOption"
+  />
+  <label>Light</label>
+  <input
+    type="radio"
+    [value]="'Dark'"
+    [name]="'isL'"
+    [(ngModel)]="radioOption"
+  />
+  <label>Dark</label>
+  <button (click)="onCreate()">Add Character</button>
+</div>
