@@ -63,7 +63,7 @@ jobs:
 
       - name: Deploy
         run: |
-          npm run deploy --no-silent
+          sudo npm run deploy --no-silent
 
 
       # Runs a set of commands using the runners shell
