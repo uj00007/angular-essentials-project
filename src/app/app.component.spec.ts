@@ -10,8 +10,7 @@ describe('AppComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, FormsModule],
       declarations: [
-        AppComponent,
-        CharacterComponent,
+        AppComponent,CharacterComponent,
         CreateCharacterComponent,
       ],
     }).compileComponents();
