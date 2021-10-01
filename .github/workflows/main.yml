@@ -62,6 +62,8 @@ jobs:
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
       - name: Deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           sudo npm run deploy --no-silent
 
