@@ -57,19 +57,12 @@ jobs:
         run: |
           npm run build -- --prod
 
-      # - name: Test
-      #   run: |
-      #     npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      - name: Test
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
       - name: Deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm run ng -- deploy --base-href=/angular-essentials-project/ --name="uj00007" --email="uj00007@gmail.com" --no-silent
-
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
