@@ -62,11 +62,8 @@ jobs:
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
       - name: Deploy
-        uses: actions/github-script@v5
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            npm run deploy
+        run: |
+          npm run deploy --no-silent
 
 
       # Runs a set of commands using the runners shell
