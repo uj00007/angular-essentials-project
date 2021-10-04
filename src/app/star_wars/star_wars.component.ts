@@ -1,10 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Character } from '../core/models';
+import { CharacterService } from '../core/services/character.service';
 
-interface character {
-  name: string;
-  isLight: boolean;
-}
 @Component({
   selector: 'app-star-wars',
   templateUrl: './star_wars.component.html',
@@ -12,14 +10,22 @@ interface character {
 export class StarWarsComponent {
   routesList = ['All', 'Light', 'Dark'];
   activeRoute = 'Light';
-  charactersList = [
-    { name: 'Luke Skywalker', isLight: true },
-    { name: 'Annikan Skywalker' },
-  ];
-  addToCharacterList(character: character) {
+  charactersList: Character[] = [];
+  addToCharacterList(character: Character) {
     if (!this.charactersList.some((el) => el.name === character.name)) {
-      this.charactersList = [...this.charactersList, character];
+      this.characterService.addCharacter(character);
     }
   }
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private characterService: CharacterService
+  ) {}
+
+  getCharacters() {
+    this.charactersList = this.characterService.getCharacters('all');
+  }
+
+  ngOnInit() {
+    this.getCharacters();
+  }
 }

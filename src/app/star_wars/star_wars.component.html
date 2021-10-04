@@ -15,11 +15,5 @@
     [props]="characters"
   ></app-character>
 </div>
-<div>
-  <h2>U can create a character here</h2>
-  <app-create-character
-    (addCharacter)="addToCharacterList($event)"
-  ></app-create-character>
-</div>
 
 <router-outlet></router-outlet>
