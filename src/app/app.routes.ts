@@ -14,4 +14,15 @@ export const AppRoutes: Routes = [
         (module) => module.StarWarsModule
       ),
   },
+  {
+    path: 'admin-ui',
+    loadChildren: () =>
+      import('./admin-ui/admin-ui.module').then(
+        (module) => module.AdminUiModule
+      ),
+  },
+  {
+    path: '**',
+    redirectTo: '/',
+  },
 ];
