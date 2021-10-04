@@ -1,1 +1,23 @@
 <p>hey , the star wars module container is up!!!!</p>
+<div>
+  <app-character
+    *ngFor="let characters of charactersList"
+    [props]="characters"
+  ></app-character>
+  <h2>U can create a character here</h2>
+  <app-create-character
+    (addCharacter)="addToCharacterList($event)"
+  ></app-create-character>
+</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item" *ngFor="let item of routesList">
+    <a
+      [ngClass]="item === activeRoute ? 'nav-link active' : 'nav-link'"
+      [routerLink]="[item]"
+      routerLinkActive="router-link-active"
+      >{{ item }}</a
+    >
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
