@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { CreateCharacterComponent } from './components/create-character/create-character.component';
-import { StarWarsComponent } from './star_wars.component';
+import { StarWarsComponent } from './star-wars.component';
 
 export const StarWarsRoutes: Routes = [
   { path: '', redirectTo: 'characters' },

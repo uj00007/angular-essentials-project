@@ -10,7 +10,7 @@ export const AppRoutes: Routes = [
   {
     path: 'star-wars',
     loadChildren: () =>
-      import('./star_wars/star_wars.module').then(
+      import('./star-wars/star-wars.module').then(
         (module) => module.StarWarsModule
       ),
   },

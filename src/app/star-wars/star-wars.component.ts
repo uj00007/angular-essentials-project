@@ -5,7 +5,7 @@ import { CharacterService } from '../core/services/character.service';
 
 @Component({
   selector: 'app-star-wars',
-  templateUrl: './star_wars.component.html',
+  templateUrl: './star-wars.component.html',
 })
 export class StarWarsComponent {
   routesList = ['All', 'Light', 'Dark'];
