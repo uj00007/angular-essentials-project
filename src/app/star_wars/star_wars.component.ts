@@ -22,10 +22,4 @@ export class StarWarsComponent {
     }
   }
   constructor(private route: ActivatedRoute) {}
-  ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      console.log(params);
-      this.activeRoute = params['name'];
-    });
-  }
 }
