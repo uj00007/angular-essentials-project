@@ -1,19 +1,22 @@
-<p>hey , the star wars module container is up!!!!</p>
-<div class="container-fluid">
-  <ul class="nav nav-tabs">
-    <li class="nav-item" *ngFor="let item of routesList">
-      <a
-        [ngClass]="item === activeRoute ? 'nav-link active' : 'nav-link'"
-        [routerLink]="[item]"
-        routerLinkActive="router-link-active"
-        >{{ item }}</a
-      >
-    </li>
-  </ul>
-  <app-character
-    *ngFor="let characters of charactersList"
-    [props]="characters"
-  ></app-character>
-</div>
-
+<br />
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      aria-current="page"
+      [routerLink]="'/star-wars/characters'"
+      [routerLinkActive]="'active'"
+      >Characters</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link"
+      [routerLink]="'/star-wars/create-character'"
+      [routerLinkActive]="'active'"
+      >Create Character</a
+    >
+  </li>
+</ul>
+<br />
 <router-outlet></router-outlet>

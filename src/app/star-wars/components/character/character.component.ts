@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-character',
@@ -8,13 +8,12 @@ import { Component, Input } from '@angular/core';
 export class CharacterComponent {
   @Input()
   props!: { name: string; isLight?: boolean };
+  @Output() changeSide = new EventEmitter();
 
   constructor() {}
 
   onClick(isLight = false) {
-    console.log(this.props);
-
     this.props.isLight = isLight;
-    console.log(this.props);
+    this.changeSide.emit(this.props);
   }
 }

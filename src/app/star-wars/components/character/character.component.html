@@ -2,9 +2,9 @@
   <h1>{{ props.name }}</h1>
   <p>
     from the
-    {{ props.isLight ? "light" : "dark" }} side
+    {{ props.isLight ? 'Light' : 'Dark' }} side
   </p>
 
-  <button (click)="onClick(true)">Light</button>
-  <button (click)="onClick(false)">Dark</button>
+  <button class="btn btn-primary" (click)="onClick(true)">Light</button>
+  <button class="btn btn-danger" (click)="onClick(false)">Dark</button>
 </div>

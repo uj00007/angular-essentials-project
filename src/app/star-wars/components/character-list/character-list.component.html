@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let item of routesList">
+      <a
+        class="nav-link"
+        [routerLink]="'/star-wars/characters/' + item"
+        routerLinkActive="active"
+        >{{ item }}</a
+      >
+    </li>
+  </ul>
+  <app-character
+    *ngFor="let characters of charactersList"
+    [props]="characters"
+    (changeSide)="characterService.changeCharacterSide($event)"
+  ></app-character>
+</div>

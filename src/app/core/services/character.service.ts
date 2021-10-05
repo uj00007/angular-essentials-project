@@ -8,15 +8,14 @@ import { Character } from '../models';
 export class CharacterService {
   charactersList: Character[] = [];
   constructor() {
-    console.log('Character service is initialized');
     this.charactersList = characterListMock;
   }
   addCharacter(character: Character) {
     this.charactersList.push(character);
   }
-  changeCharacterSide(name: string, isLight: boolean) {
+  changeCharacterSide(character: Character) {
     this.charactersList = this.charactersList.map((elem) => {
-      if (elem.name === name) elem.isLight = isLight;
+      if (elem.name === character.name) elem.isLight = character.isLight;
       return elem;
     });
   }
