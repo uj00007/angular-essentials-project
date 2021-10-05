@@ -7,7 +7,6 @@ import { CharacterComponent } from './components/character/character.component';
 import { CreateCharacterComponent } from './components/create-character/create-character.component';
 import { FormsModule } from '@angular/forms';
 import { CharacterListComponent } from './components/character-list/character-list.component';
-import { RouterTestingModule } from '@angular/router/testing';
 
 @NgModule({
   declarations: [
@@ -16,12 +15,7 @@ import { RouterTestingModule } from '@angular/router/testing';
     CreateCharacterComponent,
     CharacterListComponent,
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(StarWarsRoutes),
-    RouterTestingModule,
-  ],
+  imports: [CommonModule, FormsModule, RouterModule.forChild(StarWarsRoutes)],
   exports: [StarWarsComponent],
 })
 export class StarWarsModule {}
