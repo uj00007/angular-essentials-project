@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { characterListMock } from '../mocks/character.mock';
 import { Character } from '../models';
 
@@ -7,6 +8,8 @@ import { Character } from '../models';
 })
 export class CharacterService {
   charactersList: Character[] = [];
+  //subject is a certain object provided by rxjs, like an event emitter, which we can subscribe too also
+  charactersChanged = new Subject<void>();
   constructor() {
     this.charactersList = characterListMock;
   }
@@ -18,6 +21,7 @@ export class CharacterService {
       if (elem.name === character.name) elem.isLight = character.isLight;
       return elem;
     });
+    this.charactersChanged.next();
   }
   getCharacters(side: string): Character[] {
     switch (side) {

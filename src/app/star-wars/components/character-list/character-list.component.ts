@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Character } from 'src/app/core/models';
 import { CharacterService } from 'src/app/core/services/character.service';
 
@@ -8,10 +9,11 @@ import { CharacterService } from 'src/app/core/services/character.service';
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.scss'],
 })
-export class CharacterListComponent implements OnInit {
+export class CharacterListComponent implements OnInit, OnDestroy {
   routesList = ['All', 'Light', 'Dark'];
   activeRoute = '';
   charactersList: Character[] = [];
+  subscription: any;
   constructor(
     public characterService: CharacterService,
     private route: ActivatedRoute
@@ -24,5 +26,17 @@ export class CharacterListComponent implements OnInit {
         this.activeRoute
       );
     });
+    //for our personal subscriptions , we need to unsubscribe them also .. to protect any memory leaks, the angular observables like above , automatically closes them
+    this.subscription = this.characterService.charactersChanged.subscribe(
+      () => {
+        this.charactersList = this.characterService.getCharacters(
+          this.activeRoute
+        );
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
