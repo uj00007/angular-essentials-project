@@ -1,5 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { CharacterService } from 'src/app/core/services/character.service';
 
 import { CharacterListComponent } from './character-list.component';
 
@@ -10,7 +12,8 @@ describe('CharacterListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CharacterListComponent],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientModule],
+      providers: [CharacterService],
     }).compileComponents();
   });
 

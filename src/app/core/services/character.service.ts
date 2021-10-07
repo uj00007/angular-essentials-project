@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { characterListMock } from '../mocks/character.mock';
@@ -12,11 +11,9 @@ export class CharacterService {
   charactersList: Character[] = [];
   //subject is a certain object provided by rxjs, like an event emitter, which we can subscribe too also
   charactersChanged = new Subject<void>();
-  http: HttpClient;
   apiService: ApiService;
-  constructor(http: HttpClient, apiService: ApiService) {
+  constructor(apiService: ApiService) {
     this.charactersList = characterListMock;
-    this.http = http;
     this.apiService = apiService;
   }
   fetchCharactersFromApi() {
