@@ -6,30 +6,29 @@ import { StarWarsComponent } from './star-wars.component';
 export const StarWarsRoutes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: 'characters',
-  },
-  {
-    path: 'characters',
     component: StarWarsComponent,
     children: [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'All',
+        redirectTo: 'characters',
       },
       {
-        path: ':side',
-        component: CharacterListComponent,
+        path: 'characters',
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: 'All',
+          },
+          {
+            path: ':side',
+            component: CharacterListComponent,
+          },
+        ],
       },
-    ],
-  },
-  {
-    path: 'create-character',
-    component: StarWarsComponent,
-    children: [
       {
-        path: '',
+        path: 'create-character',
         component: CreateCharacterComponent,
       },
     ],
