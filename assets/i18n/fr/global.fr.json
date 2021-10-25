@@ -1,0 +1,16 @@
+{
+  "title": "Essentiels angulaires",
+  "tabs": {
+    "all": "Tout",
+    "light": "Léger",
+    "dark": "Sombre",
+    "characters": "Personnages",
+    "createCharacter": "Créer un personnage",
+    "starWars": "Guerres des étoiles",
+    "admin": "Interface utilisateur d'administration"
+  },
+  "buttons": {
+    "light": "Léger",
+    "dark": "Sombre"
+  }
+}
