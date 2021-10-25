@@ -1,0 +1,15 @@
+{
+  "tabs": {
+    "all": "All",
+    "light": "Light",
+    "dark": "Dark",
+    "characters": "Characters",
+    "createCharacter": "Create Character",
+    "starWars": "Star Wars",
+    "admin": "Admin UI"
+  },
+  "buttons": {
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

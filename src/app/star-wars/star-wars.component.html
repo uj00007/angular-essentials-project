@@ -6,7 +6,7 @@
       aria-current="page"
       [routerLink]="'/star-wars/characters'"
       [routerLinkActive]="'active'"
-      >Characters</a
+      >{{ starWars.tabs.characters }}</a
     >
   </li>
   <li class="nav-item">
@@ -14,7 +14,7 @@
       class="nav-link"
       [routerLink]="'/star-wars/create-character'"
       [routerLinkActive]="'active'"
-      >Create Character</a
+      >{{ starWars.tabs.createCharacter }}</a
     >
   </li>
 </ul>
