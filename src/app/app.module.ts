@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RxTranslateModule } from '@rxweb/translate';
+import { environment } from 'src/environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { SharedModule } from './shared/shared.module';
@@ -18,10 +19,8 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     RxTranslateModule.forRoot({
       cacheLanguageWiseObject: true,
-      globalFilePath:
-        'assets/i18n/{{language-code}}/global.{{language-code}}.json',
-      filePath:
-        'assets/i18n/{{language-code}}/{{translation-name}}.{{language-code}}.json',
+      globalFilePath: `${environment.prefixUrl}assets/i18n/{{language-code}}/global.{{language-code}}.json`,
+      filePath: `${environment.prefixUrl}assets/i18n/{{language-code}}/{{translation-name}}.{{language-code}}.json`,
     }),
   ],
   providers: [RxTranslateModule],
