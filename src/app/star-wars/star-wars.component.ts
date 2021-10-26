@@ -8,7 +8,7 @@ import { CharacterService } from '../core/services/character.service';
 })
 export class StarWarsComponent implements OnInit {
   characterService: CharacterService;
-  @translate({ translationName: 'star-wars' }) starWars: any;
+  @translate({ translationName: 'starwars' }) starWars: any;
   constructor(characterService: CharacterService) {
     this.characterService = characterService;
   }

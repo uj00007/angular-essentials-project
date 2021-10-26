@@ -10,7 +10,7 @@ export class CharacterComponent {
   @Input()
   props!: { name: string; isLight?: boolean };
   @Output() changeSide = new EventEmitter();
-  @translate({ translationName: 'star-wars' }) starWars: any;
+  @translate({ translationName: 'starwars' }) starWars: any;
 
   constructor() {}
 
