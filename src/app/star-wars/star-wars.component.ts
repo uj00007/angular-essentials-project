@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { translate } from '@rxweb/translate';
 import { CharacterService } from '../core/services/character.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { CharacterService } from '../core/services/character.service';
 })
 export class StarWarsComponent implements OnInit {
   characterService: CharacterService;
+  @translate({ translationName: 'starwars' }) starWars: any;
   constructor(characterService: CharacterService) {
     this.characterService = characterService;
   }

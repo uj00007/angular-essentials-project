@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { translate } from '@rxweb/translate';
 
 @Component({
   selector: 'app-character',
@@ -9,6 +10,7 @@ export class CharacterComponent {
   @Input()
   props!: { name: string; isLight?: boolean };
   @Output() changeSide = new EventEmitter();
+  @translate({ translationName: 'starwars' }) starWars: any;
 
   constructor() {}
 

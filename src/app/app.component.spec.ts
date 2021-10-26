@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
+import { RxTranslateModule, RxTranslation } from '@rxweb/translate';
+import { RxTranslateConfig } from '@rxweb/translate/interface/rx-translate-config';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './star-wars/components/character/character.component';
 import { CreateCharacterComponent } from './star-wars/components/create-character/create-character.component';
@@ -8,7 +11,8 @@ import { CreateCharacterComponent } from './star-wars/components/create-characte
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, FormsModule],
+      providers: [RxTranslation],
+      imports: [RouterTestingModule, FormsModule, HttpClientModule],
       declarations: [
         AppComponent,
         CharacterComponent,

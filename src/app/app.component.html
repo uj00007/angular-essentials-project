@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <!-- Navbar content -->
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Angular Essentials</a>
+    <a class="navbar-brand" href="/">{{ global.title }}</a>
     <button class="navbar-toggler" type="button" appDropdown [menu]="menu">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,7 +14,8 @@
             aria-current="page"
             [routerLink]="'star-wars'"
             [routerLinkActive]="'active'"
-            >Star Wars</a
+          >
+            {{ global && global.tabs ? global.tabs.starWars : 'Loading' }}</a
           >
         </li>
         <li class="nav-item">
@@ -22,8 +23,35 @@
             class="nav-link"
             [routerLink]="'admin-ui'"
             [routerLinkActive]="'active'"
-            >Admin UI</a
           >
+            {{ global && global.tabs ? global.tabs.admin : 'Loading' }}</a
+          >
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarScrollingDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="true"
+            appDropdown
+            [menu]="languageMenu"
+          >
+            {{ defaultLang }}
+          </a>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="navbarScrollingDropdown"
+            #languageMenu
+          >
+            <li *ngFor="let language of languagesAvailable | keyvalue">
+              <a
+                class="dropdown-item"
+                (click)="changeAppLanguage(language.key)"
+                >{{ language.value }}</a
+              >
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
